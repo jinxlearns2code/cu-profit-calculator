@@ -10,11 +10,11 @@ export default function Conditional(props) {
 			<legend>Was the land vended?</legend>
 			<div>
 				<input
-						type="radio"
-						id="vend-yes"
-						name="option"
-						value="true"
-						onClick={props.toggleOn}
+					type="radio"
+					id="vend-yes"
+					name="option"
+					value="true"
+					onClick={props.toggleOn}
 				/>
      	 		<label htmlFor="vend-yes">Yes</label>
 			</div>
@@ -25,6 +25,7 @@ export default function Conditional(props) {
 					name="option"
 					value="false"
 					onClick={props.toggleOff}
+					onChange={props.handleChange}
 				/>
       			<label htmlFor="vend-no">No</label>
 			</div>
@@ -32,13 +33,13 @@ export default function Conditional(props) {
 		{props.answer && 
 			<div>
 				<label htmlFor="eth-cost" className="card-title">Mint Cost (in ETH):</label>
-				<input type="number" name="eth-cost" id="eth-cost" onClick={props.handleClick} onKeyDown={props.handleClick} />
+				<input type="number" name="eth-cost" id="eth-cost" min="0" onClick={props.handleClick} onKeyDown={props.handleClick} onKeyUp={props.handleKeyUp} />
 			</div>
 		}
 		{props.answer &&
 			<div>
 				<label htmlFor="keystone-cost" className="card-title">Keystone Cost (in ETH):</label>
-				<input type="number" name="keystone-cost" id="keystone-cost" />
+				<input type="number" name="keystone-cost" id="keystone-cost" min="0" onKeyUp={props.handleKeyUp} />
 			</div>
 			}
 		{props.answer &&

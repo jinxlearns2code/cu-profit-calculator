@@ -26,22 +26,6 @@ function App() {
       });
   }, []);
 
-  const computationUnicorns = () => {
-    let listPrice = document.getElementById("list-price").value;
-    let deductions = .05
-    if (listPrice == "") listPrice = 0;
-
-    const ethResult = listPrice - (listPrice * deductions)
-    if (!isNaN(ethResult)) {
-      document.getElementById("outputEth").value = ethResult;
-    }
-
-    const usdResult = ethResult * ethValue
-    if (!isNaN(usdResult)) {
-      document.getElementById("outputUsd").value = usdResult;
-    }
-  };
-
   return (
     <div className="App">
       <Header
@@ -51,7 +35,9 @@ function App() {
       />
       <main>
         <Unicorns
-          handleKeyUp={computationUnicorns}
+          ethValue={ethValue}
+          rbwValue={rbwValue}
+          unimValue={unimValue}
         />
         <Lands
           ethValue={ethValue}
