@@ -4,12 +4,16 @@ import '../src/App.css'
 
 export default function Lands(props) {
 	const [answer, setAnswer] = useState(false);
+	const [value, setValue] = useState("0");
+
 	const toggleAnswer = () => setAnswer(true);
 	const toggleOff = () => setAnswer(false)
 
 	let rbwCost = (50 * props.rbwValue) / props.ethValue
 	let unimCost = (1000 * props.unimValue) / props.ethValue
-  
+	let deductions = (parseFloat(2.5) + parseFloat({value}.value)) / 100
+
+
 	const tokensCost = () => {
 		if (!isNaN(rbwCost)) {
 		  document.getElementById("rbw-cost").value = rbwCost.toFixed(4) + " ETH";
@@ -22,25 +26,25 @@ export default function Lands(props) {
 
 	const computationLands = () => {
 		let listPrice = parseFloat(document.getElementById("list-price-land").value);
-		let deductions = .05
+
 		if (listPrice == "") listPrice = 0;
 	
 		const ethResult = listPrice - (listPrice * deductions)
 		if (!isNaN(ethResult)) {
-		  document.getElementById("outputEth1").value = ethResult;
+		  document.getElementById("outputEth1").value = ethResult.toFixed(4);
 		}
 	
 		const usdResult = ethResult * props.ethValue
 		if (!isNaN(usdResult)) {
-		  document.getElementById("outputUsd1").value = usdResult;
+		  document.getElementById("outputUsd1").value = usdResult.toFixed(2);
 		}
+		
 	  };
 	
 	const finalComputationLands = () => {
 		let listPrice = parseFloat(document.getElementById("list-price-land").value);
 		let mintCost = parseFloat(document.getElementById("eth-cost").value);
 		let keystoneCost = parseFloat(document.getElementById("keystone-cost").value);
-		let deductions = .05;
 		if (listPrice == "") listPrice = 0;
 		if (mintCost == "") mintCost = 0;
 		if (keystoneCost == "") keystoneCost = 0;
@@ -52,18 +56,19 @@ export default function Lands(props) {
 		let finalEthResult = ethResult - totalExpenses
 
 		if (!isNaN(finalEthResult)) {
-			document.getElementById("outputEth1").value = finalEthResult;
+			document.getElementById("outputEth1").value = finalEthResult.toFixed(4);
 		  }
 	  
 		const usdResult = finalEthResult * props.ethValue
 		if (!isNaN(usdResult)) {
-			document.getElementById("outputUsd1").value = usdResult;
+			document.getElementById("outputUsd1").value = usdResult.toFixed(2);
 		}
-		};
-	 
-	  
+	};
+	
+	
 
 	return (
+		
 		<div className="section-container">
 			<h2>Lands</h2>
 			<div>
@@ -72,7 +77,18 @@ export default function Lands(props) {
 			</div>
 			<div>
 				<p className="card-title">Service Fee:</p>
-				<p id="service-fee">2.5%</p>
+				<input
+					type="range"
+					id="service-fee"
+					name="service-fee"
+					min="0"
+					max="2.5"
+					defaultValue="0"
+					step="0.5"
+					onChange={(e) => setValue(e.target.value)}
+
+				/>
+				<output id="fee" name="fee" htmlFor="service-fee">{value}%</output>
 			</div>
 			<div>
 				<p className="card-title">Creator Earnings:</p>
@@ -98,4 +114,5 @@ export default function Lands(props) {
 			</div>
 		</div>
 	)
+	
 }
