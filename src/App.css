@@ -19,6 +19,7 @@ body {
 }
 
 nav {
+  position: relative;
   width: 100%;
   height: 120px;
   display: flex;
@@ -30,6 +31,8 @@ nav {
   background: linear-gradient(90deg, #7fd4e9, #1472b1 100%);
   color: white;
   padding: 20px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  z-index: 1;
 }
 
 .logo {
@@ -59,14 +62,22 @@ nav {
 
 main {
   display: flex;
+  background-image: url("https://cryptounicorns.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fae7d62d5-cdfd-4f0e-b791-ade96e955c93%2FCU_Splashscreen_RayWip.png?table=block&id=ef9beb34-cc3c-477a-910f-a523ee0d58df&spaceId=c0c9f236-25ec-47e0-aad5-719266dc8969&width=2000&userId=&cache=v2");
+  background-size: cover;
 }
 
 .section-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 40%;
   margin: 100px auto;
+  border-radius: 30px;
+  padding: 20px 0px;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 0 2px #e4e4e6, 
+  0 20px 45px -10px #221454, 
+  0 10px 14px 0 rgb(34 33 81 / 25%);
 }
 
 .section-container > div {
@@ -104,14 +115,14 @@ legend {
 }
 
 output {
-  background-color: #4238ca; 
+  background-color: #3f75d8; 
   color: #fff;
-  width: 20%;
+  width: 10%;
   min-width: 100px;
   text-align: center;
   padding: 8px 15px;
   margin: 5px;
-  border-radius:10px;
+  border-radius: 10px;
 }
 
 .tokens-cost {

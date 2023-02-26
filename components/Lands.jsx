@@ -68,7 +68,6 @@ export default function Lands(props) {
 	
 
 	return (
-		
 		<div className="section-container">
 			<h2>Lands</h2>
 			<div>
