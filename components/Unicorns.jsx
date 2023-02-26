@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 export default function Unicorns(props) {
+	const [value, setValue] = useState("0");
+	let deductions = (parseFloat(2.5) + parseFloat({value}.value)) / 100
 
 	const computationUnicorns = () => {
 		let listPrice = parseFloat(document.getElementById("list-price").value);
-		let deductions = .05
 		if (listPrice == "") listPrice = 0;
 	
 		const ethResult = listPrice - (listPrice * deductions)
 		if (!isNaN(ethResult)) {
-		  document.getElementById("outputEth").value = ethResult;
+		  document.getElementById("outputEth").value = ethResult.toFixed(4);
 		}
 	
 		const usdResult = ethResult * props.ethValue
 		if (!isNaN(usdResult)) {
-		  document.getElementById("outputUsd").value = usdResult;
+		  document.getElementById("outputUsd").value = usdResult.toFixed(2);
 		}
 	  };
 	
@@ -25,7 +26,18 @@ export default function Unicorns(props) {
 			<label htmlFor="list-price" className="card-title">List Price (in ETH):</label>
 			<input type="number" name="list-price" id="list-price" onKeyUp={computationUnicorns} />
 			<p className="card-title">Service Fee:</p>
-			<p id="service-fee">2.5%</p>
+			<input
+					type="range"
+					className="service-fee"
+					name="service-fee"
+					min="0"
+					max="2.5"
+					defaultValue="0"
+					step="0.5"
+					onChange={(e) => setValue(e.target.value)}
+					onInput={computationUnicorns}
+				/>
+				<output className="fee" name="fee-unicorn" htmlFor="service-fee">{value}%</output>
 			<p className="card-title">Creator Earnings:</p>
 			<p id="creator-earnings">2.5%</p>
 			<p className="card-title">Profit (ETH):</p>

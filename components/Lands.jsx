@@ -79,16 +79,16 @@ export default function Lands(props) {
 				<p className="card-title">Service Fee:</p>
 				<input
 					type="range"
-					id="service-fee"
+					className="service-fee"
 					name="service-fee"
 					min="0"
 					max="2.5"
 					defaultValue="0"
 					step="0.5"
 					onChange={(e) => setValue(e.target.value)}
-
+					onInput={answer===false ? computationLands : finalComputationLands}
 				/>
-				<output id="fee" name="fee" htmlFor="service-fee">{value}%</output>
+				<output className="fee" name="fee-land" htmlFor="service-fee">{value}%</output>
 			</div>
 			<div>
 				<p className="card-title">Creator Earnings:</p>
