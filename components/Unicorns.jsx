@@ -11,7 +11,7 @@ export default function Unicorns(props) {
 	
 		const ethResult = listPrice - (listPrice * deductions)
 		if (!isNaN(ethResult)) {
-		  document.getElementById("outputEth").value = ethResult.toFixed(4);
+		  document.getElementById("outputEth").value = ethResult.toFixed(5);
 		}
 	
 		const usdResult = ethResult * props.ethValue
@@ -35,7 +35,7 @@ export default function Unicorns(props) {
 					defaultValue="0"
 					step="0.5"
 					onChange={(e) => setValue(e.target.value)}
-					onInput={computationUnicorns}
+					onMouseUp={computationUnicorns}
 				/>
 				<output className="fee" name="fee-unicorn" htmlFor="service-fee">{value}%</output>
 			<p className="card-title">Creator Earnings:</p>

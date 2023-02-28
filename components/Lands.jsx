@@ -85,7 +85,7 @@ export default function Lands(props) {
 					defaultValue="0"
 					step="0.5"
 					onChange={(e) => setValue(e.target.value)}
-					onInput={answer===false ? computationLands : finalComputationLands}
+					onBlur={answer===false ? computationLands : finalComputationLands}
 				/>
 				<output className="fee" name="fee-land" htmlFor="service-fee">{value}%</output>
 			</div>
