@@ -31,7 +31,7 @@ export default function Lands(props) {
 	
 		const ethResult = listPrice - (listPrice * deductions)
 		if (!isNaN(ethResult)) {
-		  document.getElementById("outputEth1").value = ethResult.toFixed(4);
+		  document.getElementById("outputEth1").value = ethResult.toFixed(5);
 		}
 	
 		const usdResult = ethResult * props.ethValue
@@ -56,7 +56,7 @@ export default function Lands(props) {
 		let finalEthResult = ethResult - totalExpenses
 
 		if (!isNaN(finalEthResult)) {
-			document.getElementById("outputEth1").value = finalEthResult.toFixed(4);
+			document.getElementById("outputEth1").value = finalEthResult.toFixed(5);
 		  }
 	  
 		const usdResult = finalEthResult * props.ethValue
@@ -85,7 +85,7 @@ export default function Lands(props) {
 					defaultValue="0"
 					step="0.5"
 					onChange={(e) => setValue(e.target.value)}
-					onBlur={answer===false ? computationLands : finalComputationLands}
+					onMouseUp={answer===false ? computationLands : finalComputationLands}
 				/>
 				<output className="fee" name="fee-land" htmlFor="service-fee">{value}%</output>
 			</div>
