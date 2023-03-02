@@ -128,3 +128,12 @@ output {
 .tokens-cost {
   margin-top: 10px;
 }
+
+
+@media (max-width: 600px) {
+  .ticker-container {
+    display: flex;
+    font-size: 0.5rem;
+    flex-direction: row;
+  }
+}
