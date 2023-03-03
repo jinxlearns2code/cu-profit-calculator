@@ -36,6 +36,7 @@ export default function Unicorns(props) {
 					step="0.5"
 					onChange={(e) => setValue(e.target.value)}
 					onMouseUp={computationUnicorns}
+					onTouchEnd={computationUnicorns}
 				/>
 				<output className="fee" name="fee-unicorn" htmlFor="service-fee">{value}%</output>
 			<p className="card-title">Creator Earnings:</p>
